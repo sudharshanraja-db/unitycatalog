@@ -186,6 +186,7 @@ public class AuthService {
               ResponseHeaders headers =
                   ResponseHeaders.of(
                       HttpStatus.OK, HttpHeaderNames.SET_COOKIE, expiredCookie.toSetCookieHeader());
+              LOGGER.debug("Logging out: {}", authorizationCookie.value());
               return HttpResponse.of(headers);
             })
         .orElse(HttpResponse.of(HttpStatus.OK));
